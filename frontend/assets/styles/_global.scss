@@ -23,8 +23,6 @@ body {
     line-height: 2.6rem;
     font-weight: 300;
     letter-spacing: 0;
-    background-color: $white;
-    color: $darkGrey;
     overflow-y: scroll;
 
     &.is-fixed {
@@ -50,7 +48,6 @@ a {
     text-decoration: none;
     cursor: pointer;
     color: $white;
-    transition: opacity $t1 $easeInExpo;
 }
 
 .h1,
