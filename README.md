@@ -4,7 +4,9 @@
 Twig starter with optional Vue components
 
 ## BACK END
-If hasn't alreadyn been done, change the name of the site in `.lando.yml`
+If hasn't alreadyn been done, change the name of the site and the mailhog in `.lando.yml`
+
+If is hasn't alreadyn been done, also change the `devServer.proxy['*'].target` in `webpack.config.js`
 
 Start Lando.
 
