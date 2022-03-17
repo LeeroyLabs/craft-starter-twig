@@ -1,0 +1,143 @@
+.container {
+    padding: 0 var(--paddingViewport) 0 calc(var(--paddingViewport) * 2);
+    margin: 0 auto;
+
+    @include laptop {
+        padding-left: calc(var(--paddingViewport) * 1.5);
+    }
+
+    @include tablet {
+        padding-left: var(--paddingViewport);
+    }
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    font-size: 1.5rem;
+    line-height: 2.6rem;
+    font-family: $fontMontserrat;
+    font-weight: 300;
+    letter-spacing: 0;
+    background-color: $white;
+    color: $darkGrey;
+    overflow-y: scroll;
+
+    &.is-fixed {
+        overflow: hidden;
+    }
+}
+
+.page__wrapper {
+    min-height: 100vh;
+    overflow-x: hidden; /* fix for ios safari */
+
+    @include tablet {
+        padding-top: 85px;
+    }
+
+    @include mobile {
+        padding-top: 80px;
+    }
+}
+
+a {
+    font-family: $fontMontserrat;
+    text-decoration: none;
+    cursor: pointer;
+    color: $white;
+    transition: opacity $t1 $easeInExpo;
+}
+
+.h1,
+.h1 p {
+    font-family: $fontMontserrat;
+    font-weight: bold;
+    font-size: 14rem;
+    line-height: 13rem;
+    text-transform: uppercase;
+
+    @include laptop {
+        font-size: 10rem;
+        line-height: 0.94;
+    }
+
+    @include mobile {
+        font-size: 7rem;
+        line-height: 1;
+    }
+}
+
+.h2,
+.h2 p {
+    font-family: $fontMontserrat;
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: normal;
+    text-transform: uppercase;
+
+    @include mobile {
+        font-size: 2rem;
+        line-height: 1.8;
+    }
+}
+
+.h3,
+.h3 p {
+    font-family: $fontMontserrat;
+    font-weight: 500;
+    font-size: 4rem;
+    line-height: normal;
+    text-transform: uppercase;
+
+    @include mobile {
+        font-size: 3rem;
+    }
+}
+
+.h4,
+.h4 p {
+    font-family: $fontMontserrat;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: normal;
+    text-transform: uppercase;
+
+    @include mobile {
+        font-size: 2.5rem;
+    }
+}
+
+.h5,
+.h5 p {
+    font-family: $fontMontserrat;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2.5;
+    text-transform: uppercase;
+
+    @include mobile {
+        line-height: 1.5;
+    }
+}
+
+p {
+    font-size: 1.5rem;
+    line-height: 2.6rem;
+    font-family: $fontMontserrat;
+    font-weight: 300;
+    letter-spacing: 0;
+
+    & ~ p {
+        margin-top: 25px;
+    }
+}
+
+strong {
+    font-weight: 500;
+}

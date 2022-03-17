@@ -1,0 +1,13 @@
+{% extends "_layouts/base" %}
+
+{% block site %}
+	<main id="main" role="main">
+		{# include "partials/global/header.twig" #}
+
+		<div class="wrapper">
+			{% block main %}{% endblock %}
+		</div>
+
+		{# include "partials/global/footer.twig" #}
+	</main>
+{% endblock %}
