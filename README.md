@@ -22,8 +22,8 @@ Then generate a security key
 ```
 lando php craft setup/security-key
 ```
-Go to http://SITE.lndo.site/admin/install
-and install the db with Craft
+Install the database by either going to http://SITE.lndo.site/admin/install
+or using `lando php craft setup`
 
 
 ## FRONT END
