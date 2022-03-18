@@ -7,6 +7,6 @@ const message = ref('Hello World!');
 </script>
 
 <template>
-    <h1>{{ message }} coucou</h1>
-    {{ props.info.craftVersion }}
+    <h1>{{ message }}</h1>
+    Craft version: {{ props.info.craftVersion }}
 </template>
