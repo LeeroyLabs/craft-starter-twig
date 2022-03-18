@@ -1,16 +1,3 @@
-.container {
-    padding: 0 var(--paddingViewport) 0 calc(var(--paddingViewport) * 2);
-    margin: 0 auto;
-
-    @include laptop {
-        padding-left: calc(var(--paddingViewport) * 1.5);
-    }
-
-    @include tablet {
-        padding-left: var(--paddingViewport);
-    }
-}
-
 html {
     font-size: 10px;
 }
