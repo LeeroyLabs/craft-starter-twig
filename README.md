@@ -22,11 +22,16 @@ Then generate a security key
 ```
 lando php craft setup/security-key
 ```
-Install the database 
+Install the database and setup Craft
 ```
 lando php craft setup
 ```
 
+### First steps
+Go to the admin panel and install/activate the plugins.  
+Be sure to add in the SEO plugin settings the **SEO Meta Template** `_seo/meta.twig`
+
+Now you can add your sites and all.
 
 ## FRONT END
 Install pnpm globally if you don't already have it.
