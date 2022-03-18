@@ -16,13 +16,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                use: {
-                    loader: 'babel-loader',
-                    options: { presets: ['@babel/preset-env'] },
-                },
-            },
-            {
                 test: /\.s?css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
