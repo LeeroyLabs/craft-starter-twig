@@ -46,5 +46,17 @@
 
     <link rel="home" href="{{ siteUrl }}"/>
     <link rel="canonical" href="{{ seo.canonical }}" data-vmid="canonical" >
+
+    {% if entry is defined %}
+        {% for locale in craft.i18n.siteLocales %}
+            {% set localeHandle = locale|split('-')[0] %}
+            <link rel="alternate" href="{{ craft.entries.id(entry.id).site(localeHandle).one().url|trim('/') }}" hreflang="{{ locale|lower }}">
+        {% endfor %}
+    {% else %}
+        {% for locale in craft.i18n.siteLocales %}
+            {% set localeHandle = locale|split('-')[0] %}
+            <link rel="alternate" href="{{ craft.app.request.absoluteUrl }}" hreflang="{{ locale|lower }}">
+        {% endfor %}
+    {% endif %}
     {# {{ dump(seo) }} #}
 {# SEO End #}
