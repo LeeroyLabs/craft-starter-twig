@@ -31,6 +31,8 @@ class App {
             /[A-Z]\w+\.(vue|js)$/
         );
 
+        const app = createApp({});
+
         requireComponent.keys().forEach(fileName => {
             // Get component config
             const componentConfig = requireComponent(fileName);
@@ -46,8 +48,6 @@ class App {
                 )
             );
 
-            const app = createApp({});
-
             // Register component globally
             app.component(
                 componentName,
@@ -56,9 +56,9 @@ class App {
                 // otherwise fall back to module's root.
                 componentConfig.default || componentConfig
             );
-
-            app.mount('#app');
         });
+
+        app.mount('#app');
     }
 }
 
