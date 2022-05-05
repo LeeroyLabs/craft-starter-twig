@@ -48,14 +48,15 @@
     <link rel="canonical" href="{{ seo.canonical }}" data-vmid="canonical" >
 
     {% if entry is defined %}
-        {% for locale in craft.i18n.siteLocales %}
-            {% set localeHandle = locale|split('-')[0] %}
-            <link rel="alternate" href="{{ craft.entries.id(entry.id).site(localeHandle).one().url|trim('/') }}" hreflang="{{ locale|lower }}">
+        {% for siteInGroup in entry.getSupportedSites() %}
+            {% set site = craft.app.sites.getSiteById(siteInGroup['siteId']) %}
+            {% set entryForSite = craft.entries.id(entry.id).siteId(site.id).one() %}
+            <link rel="alternate" hreflang="{{ site.language }}" href="{{ entryForSite.url }}" />
         {% endfor %}
     {% else %}
         {% for locale in craft.i18n.siteLocales %}
             {% set localeHandle = locale|split('-')[0] %}
-            <link rel="alternate" href="{{ craft.app.request.absoluteUrl }}" hreflang="{{ locale|lower }}">
+            <link rel="alternate" hreflang="{{ locale|lower }}" href="{{ craft.app.request.absoluteUrl }}">
         {% endfor %}
     {% endif %}
     {# {{ dump(seo) }} #}
