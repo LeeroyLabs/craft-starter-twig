@@ -6,6 +6,8 @@
 		The quick brown fox jumps over the lazy dog.
 		<img src="/dist/static/images/icons/user.svg" alt=""/>
 
-		<hello-world :info="{{ info|json_encode|e('html_attr') }}"/>
+		<hello-world :info="{{ info|json_encode|e('html_attr') }}"></hello-world>
+
+		{# <a href="{{ craft.entries.section('about').one().url }}">About</a> #}
 	</main>
 {% endblock %}

@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import Swup from 'swup';
 
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -18,6 +19,8 @@ class App {
         document.body.classList.add('loaded');
 
         this.initVueComponents();
+
+        this.initPageTransitions();
     }
 
     initVueComponents() {
@@ -59,6 +62,10 @@ class App {
         });
 
         app.mount('#app');
+    }
+
+    initPageTransitions() {
+        const swup = new Swup();
     }
 }
 

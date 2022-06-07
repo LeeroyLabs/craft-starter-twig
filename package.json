@@ -9,6 +9,8 @@
     "serve": "webpack  --mode=development && webpack-dev-server --open --mode=development"
   },
   "dependencies": {
+    "@swup/gia-plugin": "^1.0.1",
+    "swup": "^2.0.14",
     "vue": "^3.2.31"
   },
   "devDependencies": {

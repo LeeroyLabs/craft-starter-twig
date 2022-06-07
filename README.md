@@ -45,14 +45,9 @@ Go to Settings
 
 ## FRONT END
 
-Install pnpm globally if you don't already have it.
-https://pnpm.io/
-
-Then do
-
 ```
-pnpm install
-pnpm serve
+yarn install
+yarn serve
 ```
 
 URL du front: https://SITE.lndo.site:8080/  
