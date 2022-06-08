@@ -32,7 +32,7 @@ lando php craft setup
 
 ### First steps
 
-Go to the admin panel and install/activate the plugins.  
+Go to the admin panel and install/activate the plugins ( Settings > Plugins ).
 Be sure to add in the SEO plugin settings the **SEO Meta Template** `_seo/meta.twig`
 
 Go to Settings

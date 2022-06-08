@@ -8,6 +8,6 @@
 
 		<hello-world :info="{{ info|json_encode|e('html_attr') }}"></hello-world>
 
-		{# <a href="{{ craft.entries.section('about').one().url }}">About</a> #}
+		<p><a href="{{ craft.entries.section('about').one().url }}">About</a></p>
 	</main>
 {% endblock %}

@@ -1,17 +1,8 @@
 import { createApp } from 'vue';
 import Swup from 'swup';
-
-function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-function camelize(str) {
-    return str
-        .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
-            return index === 0 ? word.toLowerCase() : word.toUpperCase();
-        })
-        .replace(/\s+/g, '');
-}
+import SwupJsPlugin from '@swup/js-plugin';
+import { capitalize, camelize } from './utils';
+import './web-components/lottie-transition/lottie-transition';
 
 class App {
     init() {
@@ -65,7 +56,26 @@ class App {
     }
 
     initPageTransitions() {
-        const swup = new Swup();
+        const transition = document.querySelector('lottie-transition');
+        const options = [
+            {
+                from: '(/.*)',
+                to: '(/.*)',
+                out: (next, evt) => {
+                    transition.out(next, evt);
+                },
+                in: (next, evt) => {
+                    transition.in(next, evt);
+                }
+            },
+        ];
+
+        const swup = new Swup({
+            plugins: [
+                new SwupJsPlugin(options), 
+                //new SwupGiaPlugin({components: components})
+            ]
+        });
     }
 }
 
