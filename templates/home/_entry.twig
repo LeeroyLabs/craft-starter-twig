@@ -2,7 +2,7 @@
 
 {% block main %}
 	<main class="Home" data-barba="container" data-barba-namespace="home">
-		<h1 class="h2">Crafter Starter Twig</h1>
+		<h1 class="h1">Crafter Starter Twig</h1>
 		The quick brown fox jumps over the lazy dog.
 		<img src="/dist/static/images/icons/user.svg" alt=""/>
 
@@ -10,6 +10,12 @@
 
 		<p><a href="{{ craft.entries.section('about').one().url }}">About</a></p>
 
+		<roll-text>
+			<div>
+				<div>roll-text web component</div>
+				<div data-content="Hello world"></div>
+			</div>
+		</roll-text>
 		
 	</main>
 {% endblock %}

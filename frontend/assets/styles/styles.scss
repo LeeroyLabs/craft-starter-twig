@@ -1,5 +1,2 @@
-@import './fonts';
-@import './variables';
-@import './reset';
-@import './mixins';
-@import './global';
+@use 'reset';
+@use 'global';

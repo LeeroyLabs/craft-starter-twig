@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import barba from '@barba/core';
 import { capitalize, camelize } from './utils';
 import './web-components/lottie-transition/lottie-transition';
+import './web-components/roll-text/roll-text'
 
 class App {
     init() {
