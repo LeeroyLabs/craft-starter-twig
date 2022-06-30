@@ -1,7 +1,7 @@
 {% extends "_layouts/site" %}
 
 {% block main %}
-	<main class="Home">
+	<main class="Home" data-barba="container" data-barba-namespace="home">
 		<h1 class="h2">Crafter Starter Twig</h1>
 		The quick brown fox jumps over the lazy dog.
 		<img src="/dist/static/images/icons/user.svg" alt=""/>
@@ -9,5 +9,7 @@
 		<hello-world :info="{{ info|json_encode|e('html_attr') }}"></hello-world>
 
 		<p><a href="{{ craft.entries.section('about').one().url }}">About</a></p>
+
+		
 	</main>
 {% endblock %}

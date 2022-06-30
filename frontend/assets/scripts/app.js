@@ -1,6 +1,5 @@
 import { createApp } from 'vue';
-import Swup from 'swup';
-import SwupJsPlugin from '@swup/js-plugin';
+import barba from '@barba/core';
 import { capitalize, camelize } from './utils';
 import './web-components/lottie-transition/lottie-transition';
 
@@ -57,24 +56,33 @@ class App {
 
     initPageTransitions() {
         const transition = document.querySelector('lottie-transition');
-        const options = [
-            {
-                from: '(/.*)',
-                to: '(/.*)',
-                out: (next, evt) => {
-                    transition.out(next, evt);
-                },
-                in: (next, evt) => {
-                    transition.in(next, evt);
-                }
-            },
-        ];
 
-        const swup = new Swup({
-            plugins: [
-                new SwupJsPlugin(options), 
-                //new SwupGiaPlugin({components: components})
-            ]
+        barba.init({
+            views: [{
+                namespace: 'home',
+                beforeEnter(data) {
+                    console.log('this is homepage');
+                }
+            }, {
+                namespace: 'about',
+                beforeEnter(data) {
+                    console.log('this is about');
+                }
+            }],
+            transitions: [{
+                name: 'default-transition',
+                leave(data) {
+                    const done = this.async();
+                    transition.out(() => {done()}, data);
+                    
+                },
+                enter(data) {
+                    const done = this.async();
+                    done();
+                    transition.in(function() {}, data);
+                    
+                }
+            }]
         });
     }
 }

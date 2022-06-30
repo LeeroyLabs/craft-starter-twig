@@ -1,14 +1,15 @@
 {% extends "_layouts/base" %}
 
 {% block site %}
-	<main id="swup" role="main">
-		{# include "partials/global/header.twig" #}
 
-		<div class="wrapper">
-			{% block main %}{% endblock %}
-		</div>
+	{# include "partials/global/header.twig" #}
 
-		{# include "partials/global/footer.twig" #}
-	</main>
-	<lottie-transition></lottie-transition>
+	<div class="wrapper" data-barba="wrapper">
+		{% block main %}{% endblock %}
+	</div>
+
+	{# include "partials/global/footer.twig" #}
+	<lottie-transition v-pre></lottie-transition>
+
 {% endblock %}
+
