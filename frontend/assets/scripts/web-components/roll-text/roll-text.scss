@@ -18,12 +18,12 @@ roll-text {
             width: 100%;
             height: 100%;
             opacity: 0;
-        
+
             &:after {
                 content: attr(data-content);
                 position: absolute;
                 top: 0;
-                left: 0;        
+                left: 0;
             }
         }
     }
