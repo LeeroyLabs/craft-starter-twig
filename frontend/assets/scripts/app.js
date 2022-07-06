@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import barba from '@barba/core';
 import { capitalize, camelize } from './utils';
 import './web-components/lottie-transition/lottie-transition';
-import './web-components/roll-text/roll-text'
+import './web-components/roll-text/roll-text';
 
 class App {
     init() {
@@ -59,31 +59,37 @@ class App {
         const transition = document.querySelector('lottie-transition');
 
         barba.init({
-            views: [{
-                namespace: 'home',
-                beforeEnter(data) {
-                    console.log('this is homepage');
-                }
-            }, {
-                namespace: 'about',
-                beforeEnter(data) {
-                    console.log('this is about');
-                }
-            }],
-            transitions: [{
-                name: 'default-transition',
-                leave(data) {
-                    const done = this.async();
-                    transition.out(() => {done()}, data);
-                    
+            timeout: process.env.NODE_ENV == 'development' ? 10000 : null,
+            views: [
+                {
+                    namespace: 'home',
+                    beforeEnter(data) {
+                        console.log('this is homepage');
+                    },
                 },
-                enter(data) {
-                    const done = this.async();
-                    done();
-                    transition.in(function() {}, data);
-                    
-                }
-            }]
+                {
+                    namespace: 'about',
+                    beforeEnter(data) {
+                        console.log('this is about');
+                    },
+                },
+            ],
+            transitions: [
+                {
+                    name: 'default-transition',
+                    leave(data) {
+                        const done = this.async();
+                        transition.out(() => {
+                            done();
+                        }, data);
+                    },
+                    enter(data) {
+                        const done = this.async();
+                        done();
+                        transition.in(function () {}, data);
+                    },
+                },
+            ],
         });
     }
 }
