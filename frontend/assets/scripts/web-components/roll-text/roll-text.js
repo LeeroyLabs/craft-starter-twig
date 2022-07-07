@@ -11,12 +11,9 @@ class RollText extends HTMLElement {
         super();
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-        console.log('roll-text constructor');
     }
 
     connectedCallback() {
-        console.log('roll-text connectedCallback');
         this.element1 = this.querySelector('div > div:first-child');
         this.element2 = this.querySelector('div > div:last-child');
 

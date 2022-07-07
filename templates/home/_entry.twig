@@ -6,7 +6,9 @@
 		The quick brown fox jumps over the lazy dog.
 		<img src="/dist/static/images/icons/user.svg" alt=""/>
 
-		<hello-world :info="{{ info|json_encode|e('html_attr') }}"></hello-world>
+		<div class="vue-component-wrapper">
+			<hello-world :info="{{ info|json_encode|e('html_attr') }}"></hello-world>
+		</div>
 
 		<p><a href="{{ craft.entries.section('about').one().url }}">About</a></p>
 
@@ -17,5 +19,8 @@
 			</div>
 		</roll-text>
 		
+		<div class="vue-component-wrapper">
+			<hello-world :info="{{ info|json_encode|e('html_attr') }}"></hello-world>
+		</div>
 	</main>
 {% endblock %}

@@ -25,39 +25,43 @@ class App {
             /[A-Z]\w+\.(vue|js)$/
         );
 
-        const app = createApp({});
+        // Wrap your Vue components with a div with a vue-component-wrapper class
+        document.querySelectorAll('.vue-component-wrapper').forEach(vueWrapper => {
+            const app = createApp({});
 
-        requireComponent.keys().forEach(fileName => {
-            // Get component config
-            const componentConfig = requireComponent(fileName);
+            requireComponent.keys().forEach(fileName => {
+                // Get component config
+                const componentConfig = requireComponent(fileName);
 
-            // Get PascalCase name of component
-            const componentName = capitalize(
-                camelize(
-                    // Gets the file name regardless of folder depth
-                    fileName
-                        .split('/')
-                        .pop()
-                        .replace(/\.\w+$/, '')
-                )
-            );
+                // Get PascalCase name of component
+                const componentName = capitalize(
+                    camelize(
+                        // Gets the file name regardless of folder depth
+                        fileName
+                            .split('/')
+                            .pop()
+                            .replace(/\.\w+$/, '')
+                    )
+                );
 
-            // Register component globally
-            app.component(
-                componentName,
-                // Look for the component options on `.default`, which will
-                // exist if the component was exported with `export default`,
-                // otherwise fall back to module's root.
-                componentConfig.default || componentConfig
-            );
+                // Register component globally
+                app.component(
+                    componentName,
+                    // Look for the component options on `.default`, which will
+                    // exist if the component was exported with `export default`,
+                    // otherwise fall back to module's root.
+                    componentConfig.default || componentConfig
+                );
+            });
+
+            app.mount(vueWrapper);
         });
-
-        app.mount('#app');
     }
 
     initPageTransitions() {
         const transition = document.querySelector('lottie-transition');
 
+        const app = this;
         barba.init({
             timeout: process.env.NODE_ENV == 'development' ? 10000 : null,
             views: [
@@ -86,7 +90,9 @@ class App {
                     enter(data) {
                         const done = this.async();
                         done();
-                        transition.in(function () {}, data);
+                        transition.in(function () {
+                            app.initVueComponents();
+                        }, data);
                     },
                 },
             ],
