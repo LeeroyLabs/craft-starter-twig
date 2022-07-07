@@ -90,9 +90,8 @@ class App {
                     enter(data) {
                         const done = this.async();
                         done();
-                        transition.in(function () {
-                            app.initVueComponents();
-                        }, data);
+                        transition.in(() => {}, data);
+                        app.initVueComponents();
                     },
                 },
             ],
