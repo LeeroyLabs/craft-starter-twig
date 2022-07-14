@@ -2,11 +2,13 @@
   "name": "craftstarter",
   "version": "1.0.0",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "watch": "webpack --watch --mode=development",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "serve": "webpack  --mode=development && webpack-dev-server --open --mode=development"
+    "serve": "webpack --mode=development && webpack-dev-server --open --mode=development",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
@@ -20,15 +22,21 @@
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^4.3.0",
     "css-minimizer-webpack-plugin": "^4.0.0",
-    "eslint": "^8.10.0",
+    "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-vue": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.2.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "mini-css-extract-plugin": "^2.5.3",
     "postcss": "^8.4.12",
     "postcss-loader": "^6.2.1",
-    "prettier": "^2.5.1",
+    "prettier": "^2.7.1",
     "sass": "^1.39.0",
     "sass-loader": "^10.0.2",
+    "stylelint": "^14.9.1",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-config-standard-scss": "^4.0.0",
     "vue-loader": "^17.0.0",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.69.1",
@@ -39,5 +47,12 @@
     "defaults",
     "not ie <= 11",
     "> 1%"
-  ]
+  ],
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.scss": "stylelint --fix"
+  }
 }

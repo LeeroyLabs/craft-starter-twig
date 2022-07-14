@@ -3,44 +3,51 @@ $mobile: 767px;
 $tablet: 1024px;
 $laptop: 1366px;
 $hd: 1920px;
-$twoK: 2200px;
-$fourK: 3400px;
+$two-k: 2200px;
+$four-k: 3400px;
 
-@mixin fourK {
-    @media (max-width: $fourK) {
+@mixin four-k {
+    @media (max-width: $four-k) {
         @content;
     }
 }
-@mixin twoK {
-    @media (max-width: $twoK) {
+
+@mixin two-k {
+    @media (max-width: $two-k) {
         @content;
     }
 }
+
 @mixin hd {
     @media (max-width: $hd) {
         @content;
     }
 }
+
 @mixin laptop {
     @media (max-width: $laptop) {
         @content;
     }
 }
-@mixin desktopScreen {
+
+@mixin desktop-screen {
     @media (min-width: calc($tablet + 1)) {
         @content;
     }
 }
+
 @mixin tablet {
     @media (max-width: $tablet) {
         @content;
     }
 }
+
 @mixin mobile {
     @media (max-width: $mobile) {
         @content;
     }
 }
+
 @mixin small {
     @media (max-width: $small) {
         @content;

@@ -1,3 +1,4 @@
+/* stylelint-disable */
 /* roll-text */
 
 @use 'frontend/assets/styles/variables';
@@ -54,7 +55,7 @@ roll-text {
 roll-text {
     display: inline-block;
     margin-bottom: 20px;
-    font-family: variables.$font1;
+    font-family: variables.$font-main;
 
     & > div {
         font-size: 4rem;

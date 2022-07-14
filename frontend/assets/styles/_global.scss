@@ -33,14 +33,26 @@ body {
 }
 
 a {
-    font-family: variables.$font1;
+    font-family: variables.$font-main;
     text-decoration: none;
     cursor: pointer;
 }
 
+p {
+    font-size: 1.5rem;
+    line-height: 2.6rem;
+    font-family: variables.$font-main;
+    font-weight: 300;
+    letter-spacing: 0;
+
+    & ~ p {
+        margin-top: 25px;
+    }
+}
+
 .h1,
 .h1 p {
-    font-family: variables.$font1;
+    font-family: variables.$font-main;
     font-weight: bold;
     font-size: 14rem;
     line-height: 13rem;
@@ -60,7 +72,7 @@ a {
 
 .h2,
 .h2 p {
-    font-family: variables.$font1;
+    font-family: variables.$font-main;
     font-weight: 500;
     font-size: 3rem;
     line-height: normal;
@@ -74,7 +86,7 @@ a {
 
 .h3,
 .h3 p {
-    font-family: variables.$font1;
+    font-family: variables.$font-main;
     font-weight: 500;
     font-size: 4rem;
     line-height: normal;
@@ -87,7 +99,7 @@ a {
 
 .h4,
 .h4 p {
-    font-family: variables.$font1;
+    font-family: variables.$font-main;
     font-weight: 300;
     font-size: 3rem;
     line-height: normal;
@@ -100,7 +112,7 @@ a {
 
 .h5,
 .h5 p {
-    font-family: variables.$font1;
+    font-family: variables.$font-main;
     font-weight: 500;
     font-size: 2rem;
     line-height: 2.5;
@@ -108,18 +120,6 @@ a {
 
     @include mixins.mobile {
         line-height: 1.5;
-    }
-}
-
-p {
-    font-size: 1.5rem;
-    line-height: 2.6rem;
-    font-family: variables.$font1;
-    font-weight: 300;
-    letter-spacing: 0;
-
-    & ~ p {
-        margin-top: 25px;
     }
 }
 

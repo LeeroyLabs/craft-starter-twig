@@ -1,0 +1,11 @@
+/vendor
+/config
+/modules
+/scripts
+/storage
+/web
+
+*.yml
+*.json
+*.lock
+.*

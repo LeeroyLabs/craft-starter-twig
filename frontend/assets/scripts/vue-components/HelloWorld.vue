@@ -1,7 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 
-const props = defineProps(['info']);
+const props = defineProps({
+    info: {
+        type: Object,
+        default() {
+            return { craftVersion: 'Unknown' };
+        },
+    },
+});
 
 const message = ref('Hello World!');
 </script>

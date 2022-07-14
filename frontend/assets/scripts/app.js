@@ -26,10 +26,10 @@ class App {
         );
 
         // Wrap your Vue components with a div with a vue-component-wrapper class
-        document.querySelectorAll('.vue-component-wrapper').forEach(vueWrapper => {
+        document.querySelectorAll('.vue-component-wrapper').forEach((vueWrapper) => {
             const app = createApp({});
 
-            requireComponent.keys().forEach(fileName => {
+            requireComponent.keys().forEach((fileName) => {
                 // Get component config
                 const componentConfig = requireComponent(fileName);
 
@@ -67,14 +67,14 @@ class App {
             views: [
                 {
                     namespace: 'home',
-                    beforeEnter(data) {
-                        console.log('this is homepage');
+                    beforeEnter() {
+                        console.warn('this is homepage');
                     },
                 },
                 {
                     namespace: 'about',
-                    beforeEnter(data) {
-                        console.log('this is about');
+                    beforeEnter() {
+                        console.warn('this is about');
                     },
                 },
             ],
