@@ -10,9 +10,11 @@
 			<hello-world :info="{{ info|json_encode|e('html_attr') }}"></hello-world>
 		</div>
 
-		<p><a href="{{ craft.entries.section('about').one().url }}">About</a></p>
+		<p>
+			<a href="{{ craft.entries.section('about').one().url }}">About</a>
+		</p>
 
-		<roll-text v-pre>
+		<roll-text>
 			<div>
 				<div>roll-text web component</div>
 				<div data-content="Hello world"></div>
