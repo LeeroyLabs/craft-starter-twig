@@ -1,6 +1,6 @@
 # Craft Starter Twig
 
-Twig starter with optional Vue components
+Twig starter with optional Vue components, Web components and page transitions
 
 ## BACK END
 
@@ -15,6 +15,8 @@ Start Lando.
 lando start
 lando composer install # install craft dependencies
 ```
+
+### Instructions to setup Craft CMS
 
 Create the .env with the right DB username and password (use `lando info` command), and the right SITE name.
 
@@ -45,6 +47,14 @@ Go to Settings
 
 ## FRONT END
 
+Everything is setup so that the code is prettified and linted as you develop, and before every commit.  
+Be sure to install the recommended extensions by clicking Install on the prompt window, or open the Command Palette (`Cmd/CTRL + Shift + P`) and search for **Extensions > Show Recommended Extensions**.
+
+**EditorConfig** and **Prettier** are there to apply formatting rules (missing semicolon, extra spaces, etc.)  
+**ESLint** and **Stylelint** checks for code quality (unused variables, unreachable code, etc.)
+
+### Get started
+
 ```
 yarn install
 yarn serve
@@ -57,7 +67,7 @@ URL du back: https://SITE.lndo.site/admin
 
 Vue is completely optional, but you can add some components dynamically.
 
-Add your .vue component in the `frontend\assets\scripts\components` folder, named in Pascal case, eg. `HelloWorld.vue`  
+Add your .vue component in the `frontend\assets\scripts\vue-components` folder, named in Pascal case, eg. `HelloWorld.vue`  
 You can then use that component in your twig template by using the tag of the componenent in kebab case, eg. `<hello-world>`, wrapped with `<div class="vue-component-wrapper"></div>`
 
 Passing data from Craft (in Twig) to your Vue components is possible via the props, JSON encoded.
