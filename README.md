@@ -67,7 +67,7 @@ URL du back: https://SITE.lndo.site/admin
 
 Vue is completely optional, but you can add some components dynamically.
 
-Add your .vue component in the `frontend\assets\scripts\vue-components` folder, named in Pascal case, eg. `HelloWorld.vue`  
+Add your .vue component in the `frontend\scripts\vue-components` folder, named in Pascal case, eg. `HelloWorld.vue`  
 You can then use that component in your twig template by using the tag of the componenent in kebab case, eg. `<hello-world>`, wrapped with `<div class="vue-component-wrapper"></div>`
 
 Passing data from Craft (in Twig) to your Vue components is possible via the props, JSON encoded.

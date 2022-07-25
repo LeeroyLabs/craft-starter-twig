@@ -7,7 +7,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './frontend/assets/scripts/main.js',
+    entry: './frontend/scripts/main.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './web/dist'),
@@ -67,11 +67,11 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, './frontend/assets/images'),
+                    from: path.resolve(__dirname, './frontend/images'),
                     to: path.resolve(__dirname, './web/dist/static/images'),
                 },
                 {
-                    from: path.resolve(__dirname, './frontend/assets/fonts'),
+                    from: path.resolve(__dirname, './frontend/fonts'),
                     to: path.resolve(__dirname, './web/dist/static/fonts'),
                 },
             ],
