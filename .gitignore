@@ -5,3 +5,5 @@
 templates/public/index.html
 web/dist
 node_modules
+*.sql
+*.gz
