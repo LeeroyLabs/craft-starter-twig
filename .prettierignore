@@ -8,4 +8,5 @@
 *.yml
 *.json
 *.lock
+*.twig
 .*
