@@ -13,7 +13,6 @@ Start Lando.
 
 ```
 lando start
-lando composer install # install craft dependencies
 ```
 
 ### Instructions to setup Craft CMS
