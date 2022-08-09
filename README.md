@@ -26,10 +26,14 @@ lando php craft setup/security-key
 ```
 
 Install the database and setup Craft
-
 ```
+# If you're setting up the project for the first time
 lando php craft setup
+
+# If craft has already been set up by someone else, just install the db
+lando db-import <your_db_file>
 ```
+
 
 ### First steps
 
