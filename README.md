@@ -17,15 +17,10 @@ lando start
 
 ### Instructions to setup Craft CMS
 
-Create the .env with the right DB username and password (use `lando info` command), and the right SITE name.
+Create the .env with the right DB username and password (use `lando info` command).
 
-Then generate a security key
+Setup Craft or install the database
 
-```
-lando php craft setup/security-key
-```
-
-Install the database and setup Craft
 ```
 # If you're setting up the project for the first time
 lando php craft setup
@@ -34,11 +29,11 @@ lando php craft setup
 lando db-import <your_db_file>
 ```
 
-
 ### First steps
 
 Go to the admin panel and install/activate the plugins ( Settings > Plugins ).
-Be sure to add in the SEO plugin settings the **SEO Meta Template** `_seo/meta.twig`
+
+If you're using ether/seo plugin be sure to add in the plugin settings the **SEO Meta Template** `_seo/meta.twig`
 
 Go to Settings
 

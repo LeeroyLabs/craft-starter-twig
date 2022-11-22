@@ -2,7 +2,7 @@ name: craftstarter
 recipe: lamp
 config:
   webroot: web
-  php: "8.0"
+  php: "8.1"
 services:
   mailhog:
     type: mailhog
@@ -10,7 +10,7 @@ services:
     hogfrom:
       - appserver
   appserver:
-    type: php:8.0
+    type: php:8.1
     build_as_root:
       - composer install
       - composer dump-autoload -a
