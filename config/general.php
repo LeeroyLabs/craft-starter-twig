@@ -11,19 +11,22 @@
 use craft\config\GeneralConfig;
 use craft\helpers\App;
 
+$isDev = App::env('CRAFT_ENVIRONMENT') === 'dev';
+$isProd = App::env('CRAFT_ENVIRONMENT') === 'production';
+
 return GeneralConfig::create()
     // Set the default week start day for date pickers (0 = Sunday, 1 = Monday, etc.)
     ->defaultWeekStartDay(1)
     // Prevent generated URLs from including "index.php"
     ->omitScriptNameInUrls()
     // Enable Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
-    ->devMode(App::env('DEV_MODE') ?? false)
+    ->devMode($isDev)
     // Allow administrative changes
-    ->allowAdminChanges(App::env('ALLOW_ADMIN_CHANGES') ?? false)
+    ->allowAdminChanges($isDev)
     // Disallow robots
-    ->disallowRobots(App::env('DISALLOW_ROBOTS') ?? false)
+    ->disallowRobots(!$isProd)
     // Prevent user enumeration in the "forgot password" flow
-    ->preventUserEnumeration(true)
+    ->preventUserEnumeration($isDev)
     // Prevent the "X-Powered-By" header from being sent
     ->sendPoweredByHeader(false)
     // Allow only ASCII characters in generated slugs
