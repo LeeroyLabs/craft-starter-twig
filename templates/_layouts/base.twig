@@ -6,19 +6,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="/dist/main.css" rel="stylesheet">
 
-		{% hook "seo" %}
+		{{ craft.vite.script("src/scripts/main.js", false) }}
 	</head>
 
 	<body>
 		<div>
-			{% set info = {
-				craftVersion: craft.app.getVersion(),
-				environment: getenv('ENVIRONMENT')
-			} %}
-
 			{# Site content #}
 			{% block site %}{% endblock %}
 		</div>
-		<script src="/dist/bundle.js"></script>
 	</body>
 </html>

@@ -15,7 +15,7 @@ class App {
     }
 
     initVueComponents() {
-        // Automatically register all Vue components located within the /components folder.
+        // Automatically register all Vue components located within the /vue-components folder.
         const requireComponent = require.context(
             // The relative path of the components folder
             './vue-components',

@@ -1,7 +1,8 @@
 import lottie from 'lottie-web';
+import jsonData from './lottie-transition.json';
 
 const template = document.createElement('template');
-template.innerHTML = /* html */`
+template.innerHTML = /* html */ `
     <style>
         svg {
             position: fixed;
@@ -28,7 +29,7 @@ class LottieTransition extends HTMLElement {
             autoplay: false,
             //path: require('./lottie-transition.json'),
             // if "path" doesn't work, use animationData:
-            animationData: require('./lottie-transition.json'),
+            animationData: jsonData,
         });
 
         this.nextRef = null;
@@ -40,14 +41,16 @@ class LottieTransition extends HTMLElement {
             window.lottie = this.animation;
         });
     }
-    
+
+    // eslint-disable-next-line no-unused-vars
     out(next, evt) {
         this.animation.removeEventListener('complete', this.nextRef);
         this.animation.playSegments([0, this.totalFrames / 2], true);
         this.nextRef = next;
         this.animation.addEventListener('complete', this.nextRef);
     }
-    
+
+    // eslint-disable-next-line no-unused-vars
     in(next, evt) {
         this.animation.removeEventListener('complete', this.nextRef);
         this.animation.playSegments([this.totalFrames / 2, this.totalFrames], true);

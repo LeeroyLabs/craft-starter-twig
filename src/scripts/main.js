@@ -1,4 +1,4 @@
-import '../styles/styles.scss';
+import '@css/styles.scss';
 import App from './app';
 
 App.init();
