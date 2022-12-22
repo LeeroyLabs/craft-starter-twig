@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ craft.app.language }}">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="/dist/main.css" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		{{ craft.vite.script("src/scripts/main.js", false) }}
-	</head>
+        {{ craft.vite.script("src/scripts/main.js", false) }}
+    </head>
 
-	<body>
-		<div>
-			{# Site content #}
-			{% block site %}{% endblock %}
-		</div>
-	</body>
+    <body>
+        {% set info = {
+            craftVersion: craft.app.getVersion(),
+            environment: getenv('CRAFT_ENVIRONMENT')
+        } %}
+        {% block site %}{% endblock %}
+    </body>
 </html>

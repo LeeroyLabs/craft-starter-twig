@@ -27,7 +27,7 @@ class LottieTransition extends HTMLElement {
             renderer: 'svg',
             loop: false,
             autoplay: false,
-            //path: require('./lottie-transition.json'),
+            //path: jsonData,
             // if "path" doesn't work, use animationData:
             animationData: jsonData,
         });

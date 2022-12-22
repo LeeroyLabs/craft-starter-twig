@@ -3,6 +3,7 @@ import manifestSRI from 'vite-plugin-manifest-sri';
 import path from 'path';
 import viteCompression from 'vite-plugin-compression';
 import ViteRestart from 'vite-plugin-restart';
+import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
@@ -29,6 +30,13 @@ export default defineConfig(({ command }) => ({
         }),
         ViteRestart({
             reload: ['templates/**/*'],
+        }),
+        vue({
+            template: {
+                compilerOptions: {
+                    isCustomElement: (tag) => tag.startsWith('hello-'),
+                },
+            },
         }),
     ],
     publicDir: path.resolve(__dirname, 'src/public'),
