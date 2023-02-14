@@ -3,6 +3,7 @@
 /modules
 /scripts
 /storage
+/templates
 /web
 
 *.yml
@@ -10,3 +11,4 @@
 *.lock
 *.twig
 .*
+makefile

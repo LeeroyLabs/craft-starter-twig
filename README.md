@@ -1,71 +1,49 @@
 # Craft Starter Twig
 
-Twig starter with optional Vue components, Web components and page transitions
+Twig starter running on Vite with optional Web Components and page transitions with Barba.js
 
-## BACK END
+## Makefile
 
-If it hasn't already been done:
+A Makefile has been included to provide a unified CLI for common development commands.
 
--   change the name of the site and the mailhog in `.lando.yml`
--   change the `devServer.proxy['*'].target` in `webpack.config.js`
+-   `make install` - Runs a complete one-time process to set the project up and install Craft.
+-   `make up` - Starts the DDEV project, ensuring that SSH keys have been added, and npm & Composer have been installed.
+-   `make dev` - Runs a one-time build of all front-end assets, then starts Vite's server for HMR.
+-   `make build` - Builds all front-end assets.
+-   `make composer xxx` - Run Composer commands inside the container, e.g. `make composer install`
+-   `make craft xxx` - Run Craft commands inside the container, e.g. `make craft project-config/touch`
+-   `make yarn xxx` - Run yarn commands inside the container, e.g. `make yarn install`
+-   `make pull` - Pull remote db & assets (requires setting up [craft-scripts](https://github.com/nystudio107/craft-scripts/)
 
-Start Lando.
+## Create a new project with this starter
 
-```
-lando start
-```
-
-### Instructions to setup Craft CMS
-
-Create the .env with the right DB username and password (use `lando info` command).
-
-Setup Craft or install the database
-
-```
-# If you're setting up the project for the first time
-lando php craft setup
-
-# If craft has already been set up by someone else, just install the db
-lando db-import <your_db_file>
+```shell
+make install
 ```
 
-### First steps
+Then follow the prompts.
 
-Go to the admin panel and install/activate the plugins ( Settings > Plugins ).
+## New on the project ?
 
-If you're using ether/seo plugin be sure to add in the plugin settings the **SEO Meta Template** `_seo/meta.twig`
+```shell
+make dev
+```
 
-Go to Settings
+This command will:
 
--   Add your sites (if multiple languages)
--   Add a homepage section :
-    -   Name: **Home**
-    -   Section Type: **Single**
-    -   Site Settings: Check the Homepage column and template should be `home/_entry`
+1. Copy your local SSH keys into the container
+2. Start your DDEV project
+3. Install Composer
+4. Install yarn
+5. Do a one-time build of Vite
+6. Spin up the Vite dev server
 
-## FRONT END
+Open up a browser to your project domain to verify that Vite is connected. Begin crafting beautiful things. ❤️
+
+## Front-end
 
 Everything is setup so that the code is prettified and linted as you develop, and before every commit.  
 Be sure to install the recommended extensions by clicking Install on the prompt window, or open the Command Palette (`Cmd/CTRL + Shift + P`) and search for **Extensions > Show Recommended Extensions**.
 
 **EditorConfig** and **Prettier** are there to apply formatting rules (missing semicolon, extra spaces, etc.)  
 **ESLint** and **Stylelint** checks for code quality (unused variables, unreachable code, etc.)
-
-### Get started
-
-```
-yarn install
-yarn serve
-```
-
-URL du front: https://SITE.lndo.site:8080/  
-URL du back: https://SITE.lndo.site/admin
-
-### VueJS 3
-
-Vue is completely optional, but you can add some components dynamically.
-
-Add your .vue component in the `frontend\scripts\vue-components` folder, named in Pascal case, eg. `HelloWorld.vue`  
-You can then use that component in your twig template by using the tag of the componenent in kebab case, eg. `<hello-world>`, wrapped with `<div class="vue-component-wrapper"></div>`
-
-Passing data from Craft (in Twig) to your Vue components is possible via the props, JSON encoded.
