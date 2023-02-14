@@ -9,10 +9,6 @@
     </head>
 
     <body>
-        {% set info = {
-            craftVersion: craft.app.getVersion(),
-            environment: getenv('CRAFT_ENVIRONMENT')
-        } %}
         {% block site %}{% endblock %}
     </body>
 </html>

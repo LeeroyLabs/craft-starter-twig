@@ -4,11 +4,8 @@
         "source.fixAll.eslint": true,
         "source.fixAll.stylelint": true
     },
-    "eslint.validate": ["javascript", "vue"],
+    "eslint.validate": ["javascript"],
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[vue]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[css]": {

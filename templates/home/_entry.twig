@@ -6,10 +6,6 @@
 		The quick brown fox jumps over the lazy dog.
 		<img src="{{ craft.vite.asset("src/images/icons/user.svg") }}" alt=""/>
 
-		{# <div class="vue-component-wrapper">
-			<hello-world :info="{{ info|json_encode|e('html_attr') }}"></hello-world>
-		</div> #}
-
 		<p>
 			<a href="{{ craft.entries.section('about').one().url }}">About</a>
 		</p>
@@ -20,9 +16,5 @@
 				<div data-content="Hello world"></div>
 			</div>
 		</roll-text>
-
-		{# <div class="vue-component-wrapper">
-			<HelloWorld :info="{{ info|json_encode|e('html_attr') }}"></HelloWorld>
-		</div> #}
 	</main>
 {% endblock %}

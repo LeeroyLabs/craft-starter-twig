@@ -1,7 +1,4 @@
-import { createApp } from 'vue/dist/vue.esm-bundler';
 import barba from '@barba/core';
-import { defineCustomElement } from 'vue';
-import { kebabCase } from './utils';
 import './web-components/lottie-transition/lottie-transition';
 import './web-components/roll-text/roll-text';
 
@@ -10,58 +7,7 @@ class App {
         // Add loaded to body and delete spinner
         document.body.classList.add('loaded');
 
-        this.initVueComponents();
-
         this.initPageTransitions();
-    }
-
-    initVueComponents() {
-        // Automatically register all Vue components located within the /vue-components folder.
-
-        const vueComponents = import.meta.glob('./vue-components/*.vue');
-        // const requireComponent = require.context(
-        //     // The relative path of the components folder
-        //     './vue-components',
-        //     // Whether or not to look in subfolders
-        //     true,
-        //     // The regular expression used to match base component filenames
-        //     /[A-Z]\w+\.(vue|js)$/
-        // );
-
-        // Wrap your Vue components with a div with a vue-component-wrapper class
-        document.querySelectorAll('.vue-component-wrapper').forEach((vueWrapper) => {
-            const app = createApp({});
-
-            for (const path in vueComponents) {
-                //console.log(path);
-                vueComponents[path]().then((component) => {
-                    // Get component config
-                    //const componentConfig = requireComponent(component);
-
-                    // Get PascalCase name of component
-                    const componentName = kebabCase(
-                        // Gets the file name regardless of folder depth
-                        path
-                            .split('/')
-                            .pop()
-                            .replace(/\.\w+$/, '')
-                    );
-
-                    customElements.define(componentName, defineCustomElement(component));
-
-                    // Register component globally
-                    // app.component(
-                    //     componentName
-                    //     // Look for the component options on `.default`, which will
-                    //     // exist if the component was exported with `export default`,
-                    //     // otherwise fall back to module's root.
-                    //     //componentConfig.default || componentConfig
-                    // );
-                });
-            }
-
-            app.mount(vueWrapper);
-        });
     }
 
     initPageTransitions() {
