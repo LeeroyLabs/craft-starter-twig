@@ -1,33 +1,34 @@
-.PHONY: build dev composer craft pull up install
+.PHONY: up build dev devwsl composer craft boot install
 
-build: up
+up:
+	ddev exec php craft clear-caches/all --interactive=0
+	ddev exec php craft up
+build: boot
 	ddev exec yarn build
-dev: build
+dev: build up
 	ddev launch
 	ddev exec yarn serve
-devwsl: build
+devwsl: build up
 	ddev describe
 	ddev exec yarn serve
-composer: up
+composer: boot
 	ddev composer \
 		$(filter-out $@,$(MAKECMDGOALS))
-craft: up
+craft: boot
 	ddev exec php craft \
 		$(filter-out $@,$(MAKECMDGOALS))
-pull: up
-	ddev exec bash scripts/pull_assets.sh
-	ddev exec bash scripts/pull_db.sh
-install: up build
+install: boot build
 	ddev exec php craft setup/app-id \
 		$(filter-out $@,$(MAKECMDGOALS))
 	ddev exec php craft setup/security-key \
 		$(filter-out $@,$(MAKECMDGOALS))
 	ddev exec php craft install \
 		$(filter-out $@,$(MAKECMDGOALS))
+	ddev exec php craft plugin/install aws-s3
 	ddev exec php craft plugin/install redactor
 	ddev exec php craft plugin/install seomatic
 	ddev exec php craft plugin/install vite
-up:
+boot:
 	if [ ! "$$(ddev describe | grep OK)" ]; then \
 		ddev auth ssh; \
 		ddev start; \
