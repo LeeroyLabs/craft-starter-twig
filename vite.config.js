@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
+import path from 'path';
 import legacy from '@vitejs/plugin-legacy';
 import manifestSRI from 'vite-plugin-manifest-sri';
-import path from 'path';
 import viteCompression from 'vite-plugin-compression';
 import ViteRestart from 'vite-plugin-restart';
 
