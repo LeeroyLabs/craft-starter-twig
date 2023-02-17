@@ -6,8 +6,8 @@ up:
 build: boot
 	ddev exec yarn build
 dev: build up
-	if [ ! "$(grep microsoft /proc/version)" ]; then
-		ddev launch
+	if [ ! "$$(grep microsoft /proc/version)" ]; then \
+		ddev launch; \
 	fi
 	ddev describe
 	ddev exec yarn serve
