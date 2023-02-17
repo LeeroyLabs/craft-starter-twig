@@ -1,4 +1,4 @@
-.PHONY: up build dev devwsl composer craft boot install
+.PHONY: up build dev composer craft boot install
 
 up:
 	ddev exec php craft clear-caches/all --interactive=0
@@ -6,9 +6,9 @@ up:
 build: boot
 	ddev exec yarn build
 dev: build up
-	ddev launch
-	ddev exec yarn serve
-devwsl: build up
+	if [ ! "$(grep microsoft /proc/version)" ]; then
+		ddev launch
+	fi
 	ddev describe
 	ddev exec yarn serve
 composer: boot

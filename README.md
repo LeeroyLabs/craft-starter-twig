@@ -16,7 +16,6 @@ A Makefile has been included to provide a unified CLI for common development com
 -   `make boot` - Starts the DDEV project, ensuring that SSH keys have been added, and npm & Composer have been installed.
 -   `make up` - Runs the Craft commands to clear cache and load the yaml configuration files. It's done also when running one of the `make dev` commands
 -   `make dev` - Runs a one-time build of all front-end assets, then starts Vite's server for HMR.
--   `make devwsl` - Runs a one-time build of all front-end assets, then starts Vite's server for HMR. (WSL - Windows)
 -   `make build` - Builds all front-end assets.
 -   `make composer xxx` - Run Composer commands inside the container, e.g. `make composer install`
 -   `make craft xxx` - Run Craft commands inside the container, e.g. `make craft project-config/touch`
@@ -52,12 +51,6 @@ Once the process is complete, type `ddev launch` to open the project in your def
 
 ```shell
 make dev
-```
-
-or for Windows users using WSL:
-
-```shell
-make devwsl
 ```
 
 This command will:
