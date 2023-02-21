@@ -23,9 +23,10 @@ A Makefile has been included to provide a unified CLI for common development com
 
 # Create a new project with this starter
 
+Copy this project, except all gitignored folders and files.  
 Check the _.ddev/config.yaml_ file and change the `name` (`php_version` or `database` if needed).
 
-To install a clean version of Craft, run:
+Then to install a clean version of Craft, run:
 
 ```shell
 make install
