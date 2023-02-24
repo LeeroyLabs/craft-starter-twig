@@ -1,4 +1,5 @@
 <?php
+
 /**
  * General Configuration
  *
@@ -31,4 +32,8 @@ return GeneralConfig::create()
     ->sendPoweredByHeader(false)
     // Allow only ASCII characters in generated slugs
     ->limitAutoSlugsToAscii(true)
-;
+    // Aliases
+    ->aliases([
+        '@web' => rtrim(App::env('PRIMARY_SITE_URL'), '/'),
+        '@webroot' => dirname(__DIR__) . '/web',
+    ]);;
