@@ -10,16 +10,20 @@ Twig starter running on Vite with optional Web Components and page transitions w
 
 # Create a new project with this starter
 
-1. Copy this project except all gitignored folders and files.
-2. Be sure to delete the _.env_ file.
-3. Edit _.ddev/config.yaml_ file and change the `name` (`php_version` or `database` if needed).
-4. Then to install a clean version of Craft, run:
+1. Open terminal prompt, and run:
+
+```shell
+composer create-project leeroy/craft-starter-twig PATH --no-install
+```
+
+2. Edit _.ddev/config.yaml_ file and change the `name` (`php_version` or `database` if needed).
+3. Then to install a clean version of Craft, run:
 
 ```shell
 make install
 ```
 
-5. Follow the prompts (DDEV helped filling the _.env_ file)
+4. Follow the prompts (DDEV helped filling the _.env_ file)
 
 Once the process is complete, type `make dev` to start developing on the project. 🚀
 
@@ -96,6 +100,10 @@ Be sure to install the recommended extensions by clicking Install on the prompt 
 **EditorConfig** and **Prettier** are there to apply formatting rules (missing semicolon, extra spaces, etc.)  
 **ESLint** and **Stylelint** checks for code quality (unused variables, unreachable code, etc.)
 
-## Extras
+# Extras
 
 If you need interactivity, think of Web Components, or the Sprig plugin
+
+# Thanks
+
+Thanks to _onedarnleyroad/craftcms_ for some great ideas used in this starter (makefile, etc.)
