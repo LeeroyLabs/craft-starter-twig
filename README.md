@@ -60,10 +60,16 @@ Open up a browser to your project domain (something like `xxxx.ddev.site`) to ve
 
 ## Databases
 
+Export a database with:
+
+```shell
+ddev export-db > ./dumpfile.sql.gz
+```
+
 Import a database with:
 
 ```shell
-ddev import-db --src=dumpfile.sql.gz
+ddev import-db < dumpfile.sql.gz
 ```
 
 You can also use DDEV's included phpMyAdmin for database imports — just be aware it's much slower.
@@ -103,6 +109,9 @@ Be sure to install the recommended extensions by clicking Install on the prompt 
 # Extras
 
 If you need interactivity, think of Web Components, or the Sprig plugin
+
+You can debug PHP code easily with Xdebug, just [follow the instructions](https://ddev.readthedocs.io/en/latest/users/debugging-profiling/step-debugging/) to setup your IDE.  
+Then, use `ddev xdebug on` and `ddev xdebug off` to turn it on/off.
 
 # Thanks
 
